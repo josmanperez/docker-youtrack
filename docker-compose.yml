@@ -1,0 +1,14 @@
+version: "3"
+services:
+    youtrack:       
+        #image: dzwicker/docker-youtrack
+        build: .
+        volumes:
+            - "./files/lib/youtrack:/var/lib/youtrack" 
+            - "./files/log/youtrack:/var/log/youtrack"
+            - "./files/youtrack:/usr/local/youtrack/conf"
+            - "./files/tmp/:/tmp"
+        ports:
+            - "8080:8080"
+        environment:
+            TZ: "Europe/Madrid"
